@@ -1,16 +1,19 @@
-import express from 'express';
+import express from 'express'
+import connectDB from './config/db.js';
 import movieRoutes from './routes/movies.route.js';
 
 const app=express()
 const port=3000
+
+//Connect DB
+connectDB();
 
 app.get('/',(req,res)=>{
     res.json({msg: "Success"})
 })
 
 //CRUD functionality of movies
-app.use('/movies',movieRoutes)
-
+app.use('/',movieRoutes)
 
 app.listen(port,()=>{
     console.log(`The server is running at http://localhost:${port}`)
