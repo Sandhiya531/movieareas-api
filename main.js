@@ -1,9 +1,11 @@
-import express from 'express'
+import express, { json } from 'express'
 import connectDB from './config/db.js';
 import movieRoutes from './routes/movies.route.js';
 
 const app=express()
 const port=3000
+
+app.use(express.json());
 
 //Connect DB
 connectDB();
